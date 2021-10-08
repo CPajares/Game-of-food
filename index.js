@@ -1,6 +1,6 @@
 const originGame = [
-  [1, 1, 0, 0, 0],
-  [1, 0, 1, 0, 0],
+  [0, 0, 0, 0, 0],
+  [0, 0, 1, 0, 0],
   [0, 0, 1, 0, 0],
   [0, 0, 1, 0, 0],
   [0, 0, 0, 0, 0],
@@ -9,9 +9,9 @@ const originGame = [
 function transformGame(game) {
   const newGame = [
     [0, 0, 0, 0, 0],
-    [0, 0, 1, 0, 0],
-    [0, 0, 1, 0, 0],
-    [0, 0, 1, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0],
   ];
   for (let i = 0; i < game.length; i++) {
@@ -63,4 +63,8 @@ function checkCell(game, x, y) {
   return contadorVecinos;
 }
 
-console.log(transformGame(originGame));
+let pepe = originGame;
+for (let i = 0; i < 10; i++) {
+  pepe = transformGame(pepe);
+  console.log(pepe);
+}
