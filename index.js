@@ -1,10 +1,4 @@
-const originGame = [
-  [0, 0, 0, 0, 0],
-  [0, 0, 1, 0, 0],
-  [0, 0, 1, 0, 0],
-  [0, 0, 1, 0, 0],
-  [0, 0, 0, 0, 0],
-];
+const tablero = crearTablero(8);
 
 function transformGame(game) {
   const newGame = [
@@ -63,8 +57,22 @@ function checkCell(game, x, y) {
   return contadorVecinos;
 }
 
+function crearTablero(tamaño) {
+  const tablero = [];
+  for (let i = 0; i < tamaño; i++) {
+    tablero.push([]);
+    tablero[i].length = tamaño;
+  }
+  for (let i = 0; i < tamaño; i++) {
+    for (let j = 0; j < tamaño; j++) {
+      tablero[i][j] = 0;
+    }
+  }
+  return tablero;
+}
+
+crearTablero(4);
 let pepe = originGame;
 for (let i = 0; i < 10; i++) {
   pepe = transformGame(pepe);
-  console.log(pepe);
 }
