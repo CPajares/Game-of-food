@@ -1,13 +1,7 @@
-const tablero = crearTablero(8);
+let tablero = crearTablero(8);
 
 function transformGame(game) {
-  const newGame = [
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0],
-  ];
+  const newGame = crearTablero(game.length);
   for (let i = 0; i < game.length; i++) {
     for (let j = 0; j < game[i].length; j++) {
       let vecinos = checkCell(game, i, j);
@@ -20,6 +14,8 @@ function transformGame(game) {
       } else if (game[i][j] === 0) {
         if (vecinos === 3) {
           newGame[i][j] = 1;
+        } else {
+          newGame[i][j] = 0;
         }
       }
       vecinos = 0;
@@ -36,22 +32,26 @@ function checkCell(game, x, y) {
   if (x - 1 >= 0 && game[x - 1][y] === 1) {
     contadorVecinos++;
   }
-  if (x - 1 >= 0 && y + 1 <= 4 && game[x - 1][y + 1] === 1) {
+  if (x - 1 >= 0 && y + 1 <= tablero.length - 1 && game[x - 1][y + 1] === 1) {
     contadorVecinos++;
   }
   if (y - 1 >= 0 && game[x][y - 1] === 1) {
     contadorVecinos++;
   }
-  if (y + 1 <= 4 && game[x][y + 1] === 1) {
+  if (y + 1 <= tablero.length - 1 && game[x][y + 1] === 1) {
     contadorVecinos++;
   }
-  if (x + 1 <= 4 && y - 1 >= 0 && game[x + 1][y - 1] === 1) {
+  if (x + 1 <= tablero.length - 1 && y - 1 >= 0 && game[x + 1][y - 1] === 1) {
     contadorVecinos++;
   }
-  if (x + 1 <= 4 && game[x + 1][y] === 1) {
+  if (x + 1 <= tablero.length - 1 && game[x + 1][y] === 1) {
     contadorVecinos++;
   }
-  if (x + 1 <= 4 && y + 1 <= 4 && game[x + 1][y + 1] === 1) {
+  if (
+    x + 1 <= tablero.length - 1 &&
+    y + 1 <= tablero.length - 1 &&
+    game[x + 1][y + 1] === 1
+  ) {
     contadorVecinos++;
   }
   return contadorVecinos;
@@ -65,14 +65,13 @@ function crearTablero(tamaño) {
   }
   for (let i = 0; i < tamaño; i++) {
     for (let j = 0; j < tamaño; j++) {
-      tablero[i][j] = 0;
+      tablero[i][j] = Math.round(Math.random());
     }
   }
   return tablero;
 }
 
-crearTablero(4);
-let pepe = originGame;
-for (let i = 0; i < 10; i++) {
-  pepe = transformGame(pepe);
-}
+setInterval(() => {
+  tablero = transformGame(tablero);
+  console.table(tablero);
+}, 1000);
