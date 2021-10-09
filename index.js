@@ -1,7 +1,7 @@
-let tablero = crearTablero(8);
+let tablero = createBoard(10);
 
 function transformGame(game) {
-  const newGame = crearTablero(game.length);
+  const newGame = createBoard(game.length);
   for (let i = 0; i < game.length; i++) {
     for (let j = 0; j < game[i].length; j++) {
       let vecinos = checkCell(game, i, j);
@@ -57,7 +57,7 @@ function checkCell(game, x, y) {
   return contadorVecinos;
 }
 
-function crearTablero(tamaño) {
+function createBoard(tamaño) {
   const tablero = [];
   for (let i = 0; i < tamaño; i++) {
     tablero.push([]);
@@ -69,6 +69,12 @@ function crearTablero(tamaño) {
     }
   }
   return tablero;
+}
+
+function createDivs() {
+  const newDiv = document.createElement("div");
+  newDiv.className = "board__cell";
+  newDiv.style = "color: grey";
 }
 
 setInterval(() => {
