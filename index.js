@@ -1,4 +1,6 @@
-let tablero = createBoard(10);
+let tablero = createBoard(20);
+const boardHTML = document.getElementsByClassName("board");
+const column = document.getElementsByClassName("board__column");
 
 function transformGame(game) {
   const newGame = createBoard(game.length);
@@ -72,11 +74,25 @@ function createBoard(tamaño) {
 }
 
 function createDivs() {
-  const newDiv = document.createElement("div");
-  newDiv.className = "board__cell";
-  newDiv.style = "color: grey";
+  console.log(boardHTML);
+  for (let i = 0; i < tablero.length; i++) {
+    const newDivColumn = document.createElement("div");
+
+    newDivColumn.className = "board__column";
+
+    boardHTML[0].appendChild(newDivColumn);
+  }
+  for (let i = 0; i < tablero.length; i++) {
+    for (let j = 0; j < tablero.length; j++) {
+      const newDivCell = document.createElement("div");
+      newDivCell.className = "board__cell";
+      console.log(i, j);
+      column[i].appendChild(newDivCell);
+    }
+  }
 }
 
+createDivs();
 setInterval(() => {
   tablero = transformGame(tablero);
   console.table(tablero);
