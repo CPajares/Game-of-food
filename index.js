@@ -152,3 +152,7 @@ function c() {
   clearInterval(Itinerar);
   create();
 }
+
+module.exports = {
+  checkCell,
+};
