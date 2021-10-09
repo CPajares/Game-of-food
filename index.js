@@ -1,6 +1,7 @@
-let tablero = createBoard(20);
+let tablero = [];
 const boardHTML = document.getElementsByClassName("board");
 const column = document.getElementsByClassName("board__column");
+const tamañoHTML = document.getElementById("tamaño");
 
 function transformGame(game) {
   const newGame = createBoard(game.length);
@@ -74,26 +75,45 @@ function createBoard(tamaño) {
 }
 
 function createDivs() {
-  console.log(boardHTML);
+  const newBoard = document.createElement("div");
+  newBoard.className = "board__new-board";
   for (let i = 0; i < tablero.length; i++) {
     const newDivColumn = document.createElement("div");
-
     newDivColumn.className = "board__column";
-
-    boardHTML[0].appendChild(newDivColumn);
+    boardHTML[0].appendChild(newBoard);
+    newBoard.appendChild(newDivColumn);
   }
   for (let i = 0; i < tablero.length; i++) {
     for (let j = 0; j < tablero.length; j++) {
       const newDivCell = document.createElement("div");
-      newDivCell.className = "board__cell";
-      console.log(i, j);
+      newDivCell.className = `board__cell board__cell-${i}-${j}`;
       column[i].appendChild(newDivCell);
     }
   }
 }
 
-createDivs();
+function create() {
+  if (deletedBoard() === false) {
+    document.getElementsByClassName("board__new-board")[0].remove();
+  }
+  let valueNumber = Number(tamañoHTML.value);
+  if (valueNumber < 5 || valueNumber > 20 || valueNumber === NaN) {
+    tamañoHTML.value = "Valor entre 5 y 20.";
+    valueNumber = 0;
+    return;
+  }
+  tablero = createBoard(valueNumber);
+  createDivs(valueNumber);
+}
+
+function deletedBoard() {
+  if (document.getElementsByClassName("board__new-board")[0] !== undefined) {
+    return false;
+  }
+  return true;
+}
+
 setInterval(() => {
   tablero = transformGame(tablero);
-  console.table(tablero);
+  return tablero;
 }, 1000);
