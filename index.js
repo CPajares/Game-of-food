@@ -11,14 +11,18 @@ function transformGame(game) {
       if (game[i][j] === 1) {
         if (vecinos === 2 || vecinos === 3) {
           newGame[i][j] = 1;
+          document.getElementById(`${i}-${j}`).style.background = "hotpink";
         } else {
           newGame[i][j] = 0;
+          document.getElementById(`${i}-${j}`).style.background = "grey";
         }
       } else if (game[i][j] === 0) {
         if (vecinos === 3) {
           newGame[i][j] = 1;
+          document.getElementById(`${i}-${j}`).style.background = "hotpink";
         } else {
           newGame[i][j] = 0;
+          document.getElementById(`${i}-${j}`).style.background = "grey";
         }
       }
       vecinos = 0;
@@ -97,8 +101,9 @@ function createDivs() {
 }
 
 function changeCell() {
-  const row = this.id[0];
-  const file = this.id[2];
+  const index = this.id.split("-");
+  const row = index[0];
+  const file = index[1];
 
   if (this.style.background === "grey") {
     this.style.background = "hotpink";
@@ -107,7 +112,6 @@ function changeCell() {
     this.style.background = "grey";
     tablero[row][file] = 0;
   }
-
   console.table(tablero);
 }
 
@@ -125,6 +129,8 @@ function create() {
   createDivs(valueNumber);
 }
 
+function play() {}
+
 function deletedBoard() {
   if (document.getElementsByClassName("board__new-board")[0] !== undefined) {
     return false;
@@ -134,6 +140,6 @@ function deletedBoard() {
 function bucle() {
   setInterval(() => {
     tablero = transformGame(tablero);
-    return tablero;
+    console.table(tablero);
   }, 1000);
 }
