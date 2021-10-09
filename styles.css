@@ -36,7 +36,6 @@ body {
 }
 .container .board__column {
   display: flex;
-  background-color: hotpink;
 }
 
 /*# sourceMappingURL=styles.css.map */

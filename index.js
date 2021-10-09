@@ -68,7 +68,7 @@ function createBoard(tamaño) {
   }
   for (let i = 0; i < tamaño; i++) {
     for (let j = 0; j < tamaño; j++) {
-      tablero[i][j] = Math.round(Math.random());
+      tablero[i][j] = 0;
     }
   }
   return tablero;
@@ -86,10 +86,29 @@ function createDivs() {
   for (let i = 0; i < tablero.length; i++) {
     for (let j = 0; j < tablero.length; j++) {
       const newDivCell = document.createElement("div");
-      newDivCell.className = `board__cell board__cell-${i}-${j}`;
+      newDivCell.className = `board__cell `;
+      newDivCell.id = `${i}-${j}`;
+      newDivCell.style.background = "grey";
+      newDivCell.onclick = changeCell;
+
       column[i].appendChild(newDivCell);
     }
   }
+}
+
+function changeCell() {
+  const row = this.id[0];
+  const file = this.id[2];
+
+  if (this.style.background === "grey") {
+    this.style.background = "hotpink";
+    tablero[row][file] = 1;
+  } else {
+    this.style.background = "grey";
+    tablero[row][file] = 0;
+  }
+
+  console.table(tablero);
 }
 
 function create() {
@@ -112,8 +131,9 @@ function deletedBoard() {
   }
   return true;
 }
-
-setInterval(() => {
-  tablero = transformGame(tablero);
-  return tablero;
-}, 1000);
+function bucle() {
+  setInterval(() => {
+    tablero = transformGame(tablero);
+    return tablero;
+  }, 1000);
+}
