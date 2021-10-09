@@ -12,8 +12,25 @@
       <div class="board"></div>
       <div class="buttons">
         <form action="#">
-          <input type="text" class="buttons__number-cells" required />
-          <input type="button" class="buttons__start" value="START" />
+          <label for="tamaño">Introduce el tamaño del mapa</label>
+          <input
+            type="text"
+            id="tamaño"
+            class="buttons__number-cells"
+            required
+          />
+          <input
+            type="button"
+            class="buttons__create"
+            onclick="create()"
+            value="CREATE"
+          />
+          <input
+            type="button"
+            class="buttons__play"
+            onclick="bucle()"
+            value="JUGAR"
+          />
           <input type="button" class="buttons__stop" value="STOP" />
           <input type="button" class="buttons__clear" value="CLEAR" />
         </form>

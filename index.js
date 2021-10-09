@@ -1,6 +1,7 @@
-let tablero = createBoard(20);
+let tablero = [];
 const boardHTML = document.getElementsByClassName("board");
 const column = document.getElementsByClassName("board__column");
+const tamañoHTML = document.getElementById("tamaño");
 
 function transformGame(game) {
   const newGame = createBoard(game.length);
@@ -10,14 +11,18 @@ function transformGame(game) {
       if (game[i][j] === 1) {
         if (vecinos === 2 || vecinos === 3) {
           newGame[i][j] = 1;
+          document.getElementById(`${i}-${j}`).style.background = "hotpink";
         } else {
           newGame[i][j] = 0;
+          document.getElementById(`${i}-${j}`).style.background = "grey";
         }
       } else if (game[i][j] === 0) {
         if (vecinos === 3) {
           newGame[i][j] = 1;
+          document.getElementById(`${i}-${j}`).style.background = "hotpink";
         } else {
           newGame[i][j] = 0;
+          document.getElementById(`${i}-${j}`).style.background = "grey";
         }
       }
       vecinos = 0;
@@ -67,33 +72,74 @@ function createBoard(tamaño) {
   }
   for (let i = 0; i < tamaño; i++) {
     for (let j = 0; j < tamaño; j++) {
-      tablero[i][j] = Math.round(Math.random());
+      tablero[i][j] = 0;
     }
   }
   return tablero;
 }
 
 function createDivs() {
-  console.log(boardHTML);
+  const newBoard = document.createElement("div");
+  newBoard.className = "board__new-board";
   for (let i = 0; i < tablero.length; i++) {
     const newDivColumn = document.createElement("div");
-
     newDivColumn.className = "board__column";
-
-    boardHTML[0].appendChild(newDivColumn);
+    boardHTML[0].appendChild(newBoard);
+    newBoard.appendChild(newDivColumn);
   }
   for (let i = 0; i < tablero.length; i++) {
     for (let j = 0; j < tablero.length; j++) {
       const newDivCell = document.createElement("div");
-      newDivCell.className = "board__cell";
-      console.log(i, j);
+      newDivCell.className = `board__cell `;
+      newDivCell.id = `${i}-${j}`;
+      newDivCell.style.background = "grey";
+      newDivCell.onclick = changeCell;
+
       column[i].appendChild(newDivCell);
     }
   }
 }
 
-createDivs();
-setInterval(() => {
-  tablero = transformGame(tablero);
+function changeCell() {
+  const index = this.id.split("-");
+  const row = index[0];
+  const file = index[1];
+
+  if (this.style.background === "grey") {
+    this.style.background = "hotpink";
+    tablero[row][file] = 1;
+  } else {
+    this.style.background = "grey";
+    tablero[row][file] = 0;
+  }
   console.table(tablero);
-}, 1000);
+}
+
+function create() {
+  if (deletedBoard() === false) {
+    document.getElementsByClassName("board__new-board")[0].remove();
+  }
+  let valueNumber = Number(tamañoHTML.value);
+  if (valueNumber < 5 || valueNumber > 20 || valueNumber === NaN) {
+    tamañoHTML.value = "Valor entre 5 y 20.";
+    valueNumber = 0;
+    return;
+  }
+  tablero = createBoard(valueNumber);
+  createDivs(valueNumber);
+}
+
+function play() {}
+
+function deletedBoard() {
+  if (document.getElementsByClassName("board__new-board")[0] !== undefined) {
+    return false;
+  }
+  return true;
+}
+function bucle() {
+  setInterval(() => {
+    tablero = transformGame(tablero);
+    console.table(tablero);
+  }, 1000);
+}
