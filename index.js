@@ -129,8 +129,6 @@ function create() {
   createDivs(valueNumber);
 }
 
-function play() {}
-
 function deletedBoard() {
   if (document.getElementsByClassName("board__new-board")[0] !== undefined) {
     return false;
