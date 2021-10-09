@@ -112,7 +112,6 @@ function changeCell() {
     this.style.background = "grey";
     tablero[row][file] = 0;
   }
-  console.table(tablero);
 }
 
 function create() {
@@ -127,6 +126,7 @@ function create() {
   }
   tablero = createBoard(valueNumber);
   createDivs(valueNumber);
+  stop();
 }
 
 function deletedBoard() {
@@ -135,9 +135,20 @@ function deletedBoard() {
   }
   return true;
 }
+
+let Itinerar = null;
+
 function bucle() {
-  setInterval(() => {
+  Itinerar = setInterval(() => {
     tablero = transformGame(tablero);
-    console.table(tablero);
   }, 1000);
+}
+
+function stop() {
+  clearInterval(Itinerar);
+}
+
+function c() {
+  clearInterval(Itinerar);
+  create();
 }

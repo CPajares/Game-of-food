@@ -17,6 +17,7 @@
             type="text"
             id="tamaño"
             class="buttons__number-cells"
+            placeholder="Introduce valor entre  y 20"
             required
           />
           <input
@@ -31,8 +32,18 @@
             onclick="bucle()"
             value="JUGAR"
           />
-          <input type="button" class="buttons__stop" value="STOP" />
-          <input type="button" class="buttons__clear" value="CLEAR" />
+          <input
+            type="button"
+            class="buttons__stop"
+            onclick="stop()"
+            value="STOP"
+          />
+          <input
+            type="button"
+            onclick="c()"
+            class="buttons__clear"
+            value="CLEaR"
+          />
         </form>
       </div>
     </div>
