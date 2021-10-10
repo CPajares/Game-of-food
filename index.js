@@ -92,7 +92,7 @@ function createDivs() {
       const newDivCell = document.createElement("div");
       newDivCell.className = `board__cell `;
       newDivCell.id = `${i}-${j}`;
-      newDivCell.style.background = "grey";
+      newDivCell.style.background = `url("img/brocoli.png") 0% 0% / cover no-repeat`;
       newDivCell.onclick = changeCell;
 
       column[i].appendChild(newDivCell);
@@ -104,12 +104,15 @@ function changeCell() {
   const index = this.id.split("-");
   const row = index[0];
   const file = index[1];
-
-  if (this.style.background === "grey") {
-    this.style.background = "hotpink";
+  if (
+    this.style.background === `url("img/brocoli.png") 0% 0% / cover no-repeat`
+  ) {
+    this.style.background = 'url("img/pizza.png") 0% 0% / cover no-repeat';
     tablero[row][file] = 1;
-  } else {
-    this.style.background = "grey";
+  } else if (
+    this.style.background === 'url("img/pizza.png") 0% 0% / cover no-repeat'
+  ) {
+    this.style.background = 'url("img/brocoli.png") 0% 0% / cover no-repeat';
     tablero[row][file] = 0;
   }
 }
@@ -119,8 +122,8 @@ function create() {
     document.getElementsByClassName("board__new-board")[0].remove();
   }
   let valueNumber = Number(tamañoHTML.value);
-  if (valueNumber < 5 || valueNumber > 20 || valueNumber === NaN) {
-    tamañoHTML.value = "Valor entre 5 y 20.";
+  if (valueNumber < 5 || valueNumber > 18 || valueNumber === NaN) {
+    tamañoHTML.value = "Valor entre 5 y 18.";
     valueNumber = 0;
     return;
   }
@@ -148,7 +151,7 @@ function stop() {
   clearInterval(Itinerar);
 }
 
-function c() {
+function clearBoard() {
   clearInterval(Itinerar);
   create();
 }
