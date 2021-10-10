@@ -163,7 +163,3 @@ function clearBoard() {
   clearInterval(Itinerar);
   create();
 }
-
-module.exports = {
-  checkCell,
-};
