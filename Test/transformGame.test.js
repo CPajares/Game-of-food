@@ -22,9 +22,38 @@ function transformGame(game) {
   }
 }
 
-describe("Given an array to function transformGame ", () => {
-  test("for an array 3x3 like game, should return new array transformed", () => {
-    const game = [
+function checkCell(game, x, y) {
+  let contadorVecinos = 0;
+  if (x - 1 >= 0 && y - 1 >= 0 && game[x - 1][y - 1] === 1) {
+    contadorVecinos++;
+  }
+  if (x - 1 >= 0 && game[x - 1][y] === 1) {
+    contadorVecinos++;
+  }
+  if (x - 1 >= 0 && y + 1 <= 5 - 1 && game[x - 1][y + 1] === 1) {
+    contadorVecinos++;
+  }
+  if (y - 1 >= 0 && game[x][y - 1] === 1) {
+    contadorVecinos++;
+  }
+  if (y + 1 <= 5 - 1 && game[x][y + 1] === 1) {
+    contadorVecinos++;
+  }
+  if (x + 1 <= 5 - 1 && y - 1 >= 0 && game[x + 1][y - 1] === 1) {
+    contadorVecinos++;
+  }
+  if (x + 1 <= 5 - 1 && game[x + 1][y] === 1) {
+    contadorVecinos++;
+  }
+  if (x + 1 <= 5 - 1 && y + 1 <= 5 - 1 && game[x + 1][y + 1] === 1) {
+    contadorVecinos++;
+  }
+  return contadorVecinos;
+}
+
+describe("descr", () => {
+  test("desc", () => {
+    const tablero = [
       [0, 1, 0],
       [0, 1, 0],
       [0, 1, 0],
@@ -35,31 +64,7 @@ describe("Given an array to function transformGame ", () => {
       [0, 0, 0],
     ];
 
-    const result = [
-      [0, 0, 0],
-      [1, 1, 1],
-      [0, 0, 0],
-    ];
-
-    expect(result).toEqual(expected);
-  });
-  test("for an array 3x3 like game, should return new array transformed", () => {
-    const game = [
-      [0, 1, 0, 0, 1],
-      [0, 1, 0, 0, 1],
-      [0, 1, 0, 0, 1],
-    ];
-    const expected = [
-      [0, 0, 0],
-      [1, 1, 1],
-      [0, 0, 0],
-    ];
-
-    const result = [
-      [0, 0, 0],
-      [1, 1, 1],
-      [0, 0, 0],
-    ];
+    const result = transformGame(tablero);
 
     expect(result).toEqual(expected);
   });

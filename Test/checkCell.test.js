@@ -77,27 +77,3 @@ describe("Give an array, and 2 paramatres to function checkCell ", () => {
     expect(result).toEqual(expected);
   });
 });
-
-function transformGame(game) {
-  const newGame = [[], [], []];
-  for (let i = 0; i < 3; i++) {
-    for (let j = 0; j < game[i].length; j++) {
-      let vecinos = checkCell(game, i, j);
-      if (game[i][j] === 1) {
-        if (vecinos === 2 || vecinos === 3) {
-          newGame[i][j] = 1;
-        } else {
-          newGame[i][j] = 0;
-        }
-      } else if (game[i][j] === 0) {
-        if (vecinos === 3) {
-          newGame[i][j] = 1;
-        } else {
-          newGame[i][j] = 0;
-        }
-        vecinos = 0;
-      }
-    }
-    return newGame;
-  }
-}
