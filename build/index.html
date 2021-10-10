@@ -5,47 +5,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game-of-life</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../src/styles.css" />
   </head>
   <body>
     <div class="container">
-      <div class="board"></div>
-      <div class="buttons">
-        <form action="#">
-          <label for="tamaño">Introduce el tamaño del mapa</label>
-          <input
-            type="text"
-            id="tamaño"
-            class="buttons__number-cells"
-            placeholder="Introduce valor entre 5 y 18"
-            required
-          />
-          <input
-            type="button"
-            class="buttons__create"
-            onclick="create()"
-            value="CREATE"
-          />
-          <input
-            type="button"
-            class="buttons__play"
-            onclick="bucle()"
-            value="PLAY"
-          />
-          <input
-            type="button"
-            class="buttons__stop"
-            onclick="stop()"
-            value="STOP"
-          />
-          <input
-            type="button"
-            onclick="clearBoard()"
-            class="buttons__clear"
-            value="CLEAR"
-          />
-        </form>
+      <div class="gift-pizza"></div>
+      <div class="container_board">
+        <div class="board"></div>
+        <div class="buttons">
+          <form action="#">
+            <label for="tamaño">Introduce el tamaño del mapa</label>
+            <input
+              type="text"
+              id="tamaño"
+              class="buttons__number-cells"
+              placeholder="Introduce valor entre 5 y 18"
+              required
+            />
+            <input
+              type="button"
+              class="buttons__create"
+              onclick="create()"
+              value="CREATE"
+            />
+            <input
+              type="button"
+              class="buttons__play"
+              onclick="bucle()"
+              value="PLAY"
+            />
+            <input
+              type="button"
+              class="buttons__stop"
+              onclick="stop()"
+              value="STOP"
+            />
+            <input
+              type="button"
+              onclick="clearBoard()"
+              class="buttons__clear"
+              value="CLEAR"
+            />
+          </form>
+        </div>
       </div>
+      <div class="gift-brocoly"></div>
     </div>
   </body>
   <script src="index.js"></script>
