@@ -8,6 +8,7 @@ body {
   height: 100vh;
   justify-content: center;
   align-items: center;
+  font-family: "Press Start 2P", cursive;
 }
 
 .container {
@@ -78,12 +79,17 @@ body {
       background-size: cover;
     }
   }
+  label {
+    font-size: 14x;
+  }
   input[type="button"] {
     border: none;
     padding: 5px;
     border: 2px solid red;
     border-radius: 10px;
     background-color: yellowgreen;
+    font-size: 12px;
+    font-family: "Press Start 2P", cursive;
   }
   .board__column {
     display: flex;
