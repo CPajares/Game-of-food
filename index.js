@@ -11,18 +11,26 @@ function transformGame(game) {
       if (game[i][j] === 1) {
         if (vecinos === 2 || vecinos === 3) {
           newGame[i][j] = 1;
-          document.getElementById(`${i}-${j}`).style.background = "hotpink";
+          document.getElementById(
+            `${i}-${j}`
+          ).style.background = `url("img/pizza.png") 0% 0% / cover no-repeat`;
         } else {
           newGame[i][j] = 0;
-          document.getElementById(`${i}-${j}`).style.background = "grey";
+          document.getElementById(
+            `${i}-${j}`
+          ).style.background = `url("img/brocoli.png") 0% 0% / cover no-repeat`;
         }
       } else if (game[i][j] === 0) {
         if (vecinos === 3) {
           newGame[i][j] = 1;
-          document.getElementById(`${i}-${j}`).style.background = "hotpink";
+          document.getElementById(
+            `${i}-${j}`
+          ).style.background = `url("img/pizza.png") 0% 0% / cover no-repeat`;
         } else {
           newGame[i][j] = 0;
-          document.getElementById(`${i}-${j}`).style.background = "grey";
+          document.getElementById(
+            `${i}-${j}`
+          ).style.background = `url("img/brocoli.png") 0% 0% / cover no-repeat`;
         }
       }
       vecinos = 0;

@@ -14,7 +14,7 @@ body {
 .container {
   width: 650px;
   height: 650px;
-  background-color: white;
+  background-color: rgb(242, 248, 160);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -30,7 +30,6 @@ body {
     align-items: center;
 
     &__cell {
-      border: 2px solid black;
       margin: 1px;
       border-radius: 50%;
       height: 30px;
@@ -38,6 +37,13 @@ body {
       background-repeat: no-repeat;
       background-size: cover;
     }
+  }
+  input[type="button"] {
+    border: none;
+    padding: 5px;
+    border: 2px solid red;
+    border-radius: 10px;
+    background-color: yellowgreen;
   }
   .board__column {
     display: flex;
