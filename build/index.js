@@ -132,7 +132,7 @@ function create() {
   }
   let valueNumber = Number(tamañoHTML.value);
   if (valueNumber < 5 || valueNumber > 18 || valueNumber === NaN) {
-    tamañoHTML.value = "Valor entre 5 y 18.";
+    tamañoHTML.value = "min:5 - max:18";
     valueNumber = 0;
     return;
   }
