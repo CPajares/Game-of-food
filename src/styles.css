@@ -23,6 +23,23 @@ body {
 .container .container_board {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  height: 90%;
+}
+.container .wrap-gifts {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 80%;
+}
+.container .wrap-gifts__title {
+  display: flex;
+  flex-direction: column;
+}
+.container .wrap-gifts__title h1 {
+  margin: 10px;
+  text-align: center;
+  font-family: "Press Start 2P", cursive;
 }
 .container .gift-pizza {
   width: 220px;
