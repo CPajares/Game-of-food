@@ -13,24 +13,24 @@ function transformGame(game) {
           newGame[i][j] = 1;
           document.getElementById(
             `${i}-${j}`
-          ).style.background = `url("img/pizza.png") 0% 0% / cover no-repeat`;
+          ).style.background = `url("../img/pizza.png") 0% 0% / cover no-repeat`;
         } else {
           newGame[i][j] = 0;
           document.getElementById(
             `${i}-${j}`
-          ).style.background = `url("img/brocoli.png") 0% 0% / cover no-repeat`;
+          ).style.background = `url("../img/brocoli.png") 0% 0% / cover no-repeat`;
         }
       } else if (game[i][j] === 0) {
         if (vecinos === 3) {
           newGame[i][j] = 1;
           document.getElementById(
             `${i}-${j}`
-          ).style.background = `url("img/pizza.png") 0% 0% / cover no-repeat`;
+          ).style.background = `url("../img/pizza.png") 0% 0% / cover no-repeat`;
         } else {
           newGame[i][j] = 0;
           document.getElementById(
             `${i}-${j}`
-          ).style.background = `url("img/brocoli.png") 0% 0% / cover no-repeat`;
+          ).style.background = `url("../img/brocoli.png") 0% 0% / cover no-repeat`;
         }
       }
       vecinos = 0;
@@ -100,7 +100,7 @@ function createDivs() {
       const newDivCell = document.createElement("div");
       newDivCell.className = `board__cell `;
       newDivCell.id = `${i}-${j}`;
-      newDivCell.style.background = `url("img/brocoli.png") 0% 0% / cover no-repeat`;
+      newDivCell.style.background = `url("../img/brocoli.png") 0% 0% / cover no-repeat`;
       newDivCell.onclick = changeCell;
 
       column[i].appendChild(newDivCell);
@@ -113,14 +113,15 @@ function changeCell() {
   const row = index[0];
   const file = index[1];
   if (
-    this.style.background === `url("img/brocoli.png") 0% 0% / cover no-repeat`
+    this.style.background ===
+    `url("../img/brocoli.png") 0% 0% / cover no-repeat`
   ) {
-    this.style.background = 'url("img/pizza.png") 0% 0% / cover no-repeat';
+    this.style.background = 'url("../img/pizza.png") 0% 0% / cover no-repeat';
     tablero[row][file] = 1;
   } else if (
-    this.style.background === 'url("img/pizza.png") 0% 0% / cover no-repeat'
+    this.style.background === 'url("../img/pizza.png") 0% 0% / cover no-repeat'
   ) {
-    this.style.background = 'url("img/brocoli.png") 0% 0% / cover no-repeat';
+    this.style.background = 'url("../img/brocoli.png") 0% 0% / cover no-repeat';
     tablero[row][file] = 0;
   }
 }
