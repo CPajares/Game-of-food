@@ -91,6 +91,19 @@ body {
     font-size: 12px;
     font-family: "Press Start 2P", cursive;
   }
+  input[type="button"]:hover {
+    background-color: red;
+    border: 2px solid black;
+  }
+  input[type="text"] {
+    width: 240px;
+    padding: 5px;
+    border: 2px solid red;
+    border-radius: 10px;
+    background-color: yellowgreen;
+    font-size: 15px;
+    font-family: "Press Start 2P", cursive;
+  }
   .board__column {
     display: flex;
   }
