@@ -1,5 +1,11 @@
 function transformGame(game) {
-  const newGame = [[], [], []];
+  const newGame = [
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+  ];
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < game[i].length; j++) {
       let vecinos = checkCell(game, i, j);
@@ -54,14 +60,18 @@ function checkCell(game, x, y) {
 describe("descr", () => {
   test("desc", () => {
     const tablero = [
-      [0, 1, 0],
-      [0, 1, 0],
-      [0, 1, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 1, 0, 0],
+      [0, 0, 1, 0, 0],
+      [0, 0, 1, 0, 0],
+      [0, 0, 0, 0, 0],
     ];
     const expected = [
-      [0, 0, 0],
-      [1, 1, 1],
-      [0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 1, 1, 1, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
     ];
 
     const result = transformGame(tablero);
