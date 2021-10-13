@@ -25,39 +25,43 @@
         <div class="board"></div>
         <div class="buttons">
           <form action="#">
-            <label for="tamaño">Tamaño del mapa:</label>
-            <input
-              type="text"
-              id="tamaño"
-              class="buttons__number-cells"
-              placeholder="min:5 - max:18"
-              autocomplete="off"
-              required
-            />
-            <input
-              type="button"
-              class="buttons__create"
-              onclick="create()"
-              value="CREATE"
-            />
-            <input
-              type="button"
-              class="buttons__play"
-              onclick="bucle()"
-              value="PLAY"
-            />
-            <input
-              type="button"
-              class="buttons__stop"
-              onclick="stop()"
-              value="STOP"
-            />
-            <input
-              type="button"
-              onclick="clearBoard()"
-              class="buttons__clear"
-              value="CLEAR"
-            />
+            <div class="wrap-text">
+              <label for="tamaño">Tamaño del mapa:</label>
+              <input
+                type="text"
+                id="tamaño"
+                class="buttons__number-cells"
+                placeholder="min:5 - max:18"
+                autocomplete="off"
+                required
+              />
+              <input
+                type="button"
+                class="buttons__create"
+                onclick="create()"
+                value="CREATE"
+              />
+            </div>
+            <div class="wrap-buttons">
+              <input
+                type="button"
+                class="buttons__play"
+                onclick="bucle()"
+                value="PLAY"
+              />
+              <input
+                type="button"
+                class="buttons__stop"
+                onclick="stop()"
+                value="STOP"
+              />
+              <input
+                type="button"
+                onclick="clearBoard()"
+                class="buttons__clear"
+                value="CLEAR"
+              />
+            </div>
           </form>
         </div>
       </div>
